@@ -13,7 +13,7 @@ public class AnaliseTemperatura {
         // 1. Leitura dos dados
         for (i = 0; i < temperatura.length; i++) {
             System.out.print((i + 1) + "° valor: ");
-            temperatura[i] = scanner.nextDouble(); // Corrigido para nextDouble()
+            temperatura[i] = scanner.nextDouble(); 
         }
         
         // 2. Inicialização do maior e menor FORA do laço
