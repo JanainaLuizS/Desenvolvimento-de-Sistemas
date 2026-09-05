@@ -16,9 +16,18 @@ public class Horario {
 	    
 	    // 2. Construtor com parâmetros (hora, minuto, segundo)
 	    public Horario(int hora, int minuto, int segundo) {
-	        this.hora = hora;
+	        if(
+				(hora >=0 && hora<= 23) &&
+			    (minuto >= 0 && minuto <= 59) &&
+				(segundo >= 0&& segundo<= 0)
+			){
+			this.hora = hora;
 	        this.minuto = minuto;
 	        this.segundo = segundo;
+				
+			}else{
+				System.out.println("Valores inválidos);
+			}
 	    }
 	    
 	    // --- Getters e Setters ---
