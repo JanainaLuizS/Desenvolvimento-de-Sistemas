@@ -48,7 +48,7 @@ public class Eletrodomestico {
 
     // Consumo Diário em Wh
     public double consumoDiarioWh() {
-        return this.potenciaWatts * this.horasPorDia;
+        return potenciaWatts * horasPorDia;
     }
 
     // Consumo Mensal em Wh (Reutiliza o consumo diário)
