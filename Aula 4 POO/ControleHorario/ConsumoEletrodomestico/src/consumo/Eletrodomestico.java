@@ -63,8 +63,8 @@ public class Eletrodomestico {
 
     // Gasto Mensal em R$ (Converte Wh para kWh dividindo por 1000)
     public double gastoMensal(double precoKwh) {
-        double consumoMensalKwh = consumoMensalWh() / 1000.0;
-        return consumoMensalKwh * precoKwh;
+       
+        return consumoMensalKwh()/1000 * precoKwh;
     }
 
     // 4. Método para Exibir o Relatório
