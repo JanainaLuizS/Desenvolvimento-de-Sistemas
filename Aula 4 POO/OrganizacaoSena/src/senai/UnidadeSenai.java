@@ -15,17 +15,10 @@ public class UnidadeSenai {
         this.departamentos = new ArrayList<>();
 	}
 
-	public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
     
  // Adiciona um Departamento na lista
-    public void adicionarDepartamento(Departamento departamento) {
-        this.departamentos.add(departamento);
+    public void adicionarDepartamento(Departamento depart) {
+        departamentos.add(depart);
     }
     
  // Exibe a estrutura inteira encadeada
