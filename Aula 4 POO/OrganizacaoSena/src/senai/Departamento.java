@@ -49,8 +49,8 @@ public class Departamento {
 
 	
 	// Adiciona um objeto Funcionario na lista
-	public void adicionarFuncionario(Funcionario funcionario) {
-		this.funcionarios.add(funcionario);
+	public void adicionarFuncionario(Funcionario func) {
+		funcionarios.add(func);
 	}
 
 	// Exibe os dados do departamento
