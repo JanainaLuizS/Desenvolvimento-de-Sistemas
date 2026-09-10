@@ -26,6 +26,7 @@ public class Main {
 
             opcao = scanner.nextInt();
             scanner.nextLine(); // Limpa o buffer do teclado após ler número
+            //ou faz opcao = Integer.parseInt(leia.nextLine();
 
             switch (opcao) {
                 case 1:
