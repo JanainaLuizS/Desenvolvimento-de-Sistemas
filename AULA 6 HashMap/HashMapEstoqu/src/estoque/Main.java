@@ -10,7 +10,8 @@ public class Main {
 
         // Criando o HashMap para o controle de estoque
         HashMap<String, Integer> estoque = new HashMap<>();
-
+        Scanner scn = new Scanner(System.in);
+        
         // 1. Cadastre pelo menos quatro produtos (usando .put)
         estoque.put("Teclado", 10);
         estoque.put("Mouse", 15);
@@ -23,7 +24,8 @@ public class Main {
         System.out.println("-------------------------------------\n");
 
         // 3. Pesquise a quantidade de determinado produto
-        String produtoPesquisado = "Mouse";
+         System.out.println ("Digite o produto:");
+        String produtoPesquisado = scn.nextLine();
         
         System.out.println(">>> CONSULTA DE PRODUTO <<<");
         if (estoque.containsKey(produtoPesquisado)) {
