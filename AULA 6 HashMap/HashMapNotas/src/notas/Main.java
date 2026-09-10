@@ -24,6 +24,9 @@ public class Main {
         System.out.println("=RELATÓRIO INDIVIDUAL DOS ALUNOS=");
 
         // 2. Percorrendo o HashMap chave por chave (usando keySet)
+        /* ou usa assim for (Map.Entry,String, double>aluno: nota.entrySet()){
+                             String nome = aluno.getkey();
+                            double nota = aluno.getValue();*/
         for (String aluno : notas.keySet()) {
             double nota = notas.get(aluno);
             
