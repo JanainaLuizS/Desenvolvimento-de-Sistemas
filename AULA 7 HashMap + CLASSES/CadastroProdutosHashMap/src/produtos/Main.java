@@ -17,9 +17,10 @@ public class Main {
 
         // Requisito 2: Listar todos os produtos cadastrados
         System.out.println("=== LISTA DE PRODUTOS CADASTRADOS ===");
-        for (Map.Entry<Integer, Produto> entry : produtos.entrySet()) {
-            System.out.println("\nCódigo: " + entry.getKey());
-            entry.getValue().exibirDados();
+        
+        for (Map.Entry<Integer, Produto> prod : produtos.entrySet()) {
+            prod.getValue().exibirDados();
+            
             System.out.println("-----------------------------------");
         }
 
@@ -30,8 +31,6 @@ public class Main {
 
         // Requisito 4, 5 e 6: Pesquisar produto pelo código e exibir resultado
         if (produtos.containsKey(codigoBuscado)) {
-           
-            System.out.println("Código: " + codigoBuscado);
             produtos.get(codigoBuscado).exibirDados();
         } else {
             System.out.println("\nProduto não encontrado com o código " + codigoBuscado + ".");
