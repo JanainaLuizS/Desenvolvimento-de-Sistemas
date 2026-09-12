@@ -21,7 +21,7 @@ public class Main {
             System.out.println("0 - Encerra");
             System.out.print("Escolha uma opção: ");
 
-            opcao = scanner.nextInt();
+            opcao = Integer.parseInt(scanner.nextLine());
             int matricula;
 
             switch (opcao) {
@@ -43,10 +43,11 @@ public class Main {
                         double nota = scanner.nextDouble();
 
                         // Criação do objeto e armazenamento no HashMap
-                        Aluno aluno = new Aluno(nome, curso, nota);
-                        alunos.put(matricula, aluno);
+                     
+                        alunos.put(matricula,new Aluno(nome, curso, nota));
+                        
                         System.out.println("Aluno cadastrado com sucesso!");
-                    }
+                    } matricula++;
                     break;
 
                 case 2:
@@ -60,17 +61,12 @@ public class Main {
                     }
                     break;
 
-                case 3:
-                    if (alunos.isEmpty()) {
-                        System.out.println("\nNenhum aluno cadastrado.");
-                    } else {
-                    	
+                case 3:                  	
                         System.out.println("\n=== LISTA DE ALUNOS ===");
                         for (Map.Entry<Integer, Aluno> aluno : alunos.entrySet()) {
-                             aluno.getValue().exibirDados();
-                           
+                             aluno.getValue().exibirDados();   
                         }
-                    }
+                    
                     break;
 
                 case 4:
