@@ -11,6 +11,9 @@ public class Livro {
 
 	// Construtor
 	public Livro(String titulo, String autor, String editora, int numeroPaginas, int anoPublicacao) {
+		if(titulo==null||titulo.trim().isblank()){
+			throw new IllegalArgumentException("Otítulo não pode ser vazio");
+		}
 		this.titulo = titulo;
 		this.autor = autor;
 		this.editora = editora;
