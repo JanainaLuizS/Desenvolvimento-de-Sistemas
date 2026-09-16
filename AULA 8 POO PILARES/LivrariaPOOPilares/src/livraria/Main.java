@@ -31,7 +31,7 @@ package livraria;
 	            "Código Limpo", "Robert C. Martin", "Alta Books", 456, 2009, 95.50, 8
 	        );
 
-	        livroComercial1.exibirDados();
+	        livroComercial1.exibirDados();//é o polimorfismo , método com o mesmo nome, mas com mais informações
 	        livroComercial2.exibirDados();
 
 
