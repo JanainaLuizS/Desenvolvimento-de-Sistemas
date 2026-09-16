@@ -1,7 +1,7 @@
 package livraria;
 
 
-public class LivroDeLivraria extends Livro {
+public class LivroDeLivraria extends Livro { // livro de livraria herda de livro
 
     private double preco;
     private int quantidadeEstoque;
@@ -17,7 +17,7 @@ public class LivroDeLivraria extends Livro {
     // Sobrescrita para exibir dados bibliográficos + comerciais
     @Override
     public void exibirDados() {
-        super.exibirDados(); // Exibe título, autor, editora, etc.
+        super.exibirDados(); // Exibe título, autor, editora, etc.//executa o exibir da super classe que é livro
         System.out.printf("Preço: R$ %.2f\n", preco);
         System.out.println("Estoque disponível: " + quantidadeEstoque + " unidade(s)");
         System.out.println("------------------------------------------");
