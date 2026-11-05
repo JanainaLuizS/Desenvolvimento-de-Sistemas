@@ -1,3 +1,4 @@
+
 //1 crie um objeto
 
 let produto = { id: 101, nome: "Teclado mecânico", categoria: "Periféricos", preco: 249.90, estoque: 8 }
@@ -23,44 +24,42 @@ if (produto.estoque > 0) {
     console.log("Produto esgotado");
 }
 
-/*Crie um objeto chamado cliente com:
+//usando if ternário
+// console.log (`Produto ${Produto.estoque > 0 ? "disponível" : "indisponível"})
+
+/* 2 Crie um objeto chamado cliente com:
 ● id: 1.
 ● nome: Carlos Oliveira.
 ● endereco: outro objeto, contendo rua, numero e cidade, com valores escolhidos por você.
 ● interesses: um vetor com três textos representando categorias de produtos*/
 
-let cliente = {
+// 1. Criando o objeto cliente com objeto aninhado e vetor
+const cliente = {
     id: 1,
     nome: "Carlos Oliveira",
     endereco: {
-        rua: "Rua das Couves",
-        numero: 147,
-        cidade: "São Paulo"
+        rua: "Avenida dos Cravos",
+        numero: 120,
+        cidade: "Valença"
+    },
+    interesses: ["Tecnologia", "Eletrônicos", "Informática"]
+};
 
-    }
-}
+// 2. Exibir somente a cidade do cliente
+console.log("Cidade do cliente:", cliente.endereco.cidade);
 
-interesses = ["Periféricos", "monitores", "Acessórios"]
+// 3. Exibir o primeiro interesse (índice 0)
+console.log("Primeiro interesse:", cliente.interesses[0]);
 
-//Exiba somente a cidade do cliente.
-
-console.log("Cidade do Cliente:" + cliente.endereco.cidade);
-
-//Exiba o primeiro interesse.
-
-console.log("Primeiro interesse do cliente:" + interesses[0]);
-
-//Altere a cidade.
-
+// 4. Altere a cidade
 cliente.endereco.cidade = "Rio de Janeiro";
-console.log("Cidade atualizada:" + cliente.endereco.cidade);
+console.log("Nova cidade:", cliente.endereco.cidade);
 
-// Percorra os interesses e exiba cada um no console.
-
-interesses.forEach(interesse => {
-    console.log("Todos os interesses:" + interesse)
-})
-
+// 5. Percorra os interesses e exiba cada um no console
+console.log("\nLista de interesses:");
+cliente.interesses.forEach(interesse => {
+    console.log("- " + interesse);
+});
 //3 e seguintes 
 // 
 const produtos = [
@@ -98,80 +97,140 @@ produtos.forEach(produto => {
 //Utilize filter() para criar vetores separados contendo:
 //● Apenas produtos da categoria "Acessórios"
 
-const acessorios = produtos.filter(produto => produto.categoria === "Acessórios");
-acessorios.forEach(produto => {
-    console.log("Produtos da categoria Acessórios:" + produto.nome)
-})
-console.log("Quantidade de Produtos da categoria Acessórios:" + acessorios.length);
+let acessorios = produtos.filter(produto => produto.categoria === "Acessórios");
+console.log(acessorios);
 
 //Apenas produtos com preço inferior a R$ 100
 
-const precoInferior100 = produtos.filter(produto => produto.preco < 100);
+let precoInferior100 = produtos.filter(produto => produto.preco < 100);
+console.log("Produtos com preco inferior a R$ 100:" + precoInferior100)
 
-precoInferior100.forEach(Produto => {
-    console.log("Produtos com preco inferior a R$ 100:" + Produto.nome)
-})
+//Apenas produtos com estoque maior que zero
 
-console.log("Produtos com preço inferior a R$ 100:" + precoInferior100.length);
+let estoqueMaiorZero = produtos.filter(produto => produto.estoque > 0);
+console.log(estoqueMaiorZero)
 
- //Apenas produtos com estoque maior que zero
 
- const estoqueMaiorZero = produtos.filter(produto => produto.estoque > 0);
+//Apenas produtos ativos e com estoque maior que zero.Exiba cada resultado. Estar ativo e ter estoque são condições diferentes: o produto pode estar cadastrado como ativo mesmo sem unidades disponíveis.
 
- estoqueMaiorZero.forEach(produto => {
-    console.log("Produtos com estoque maior que zero:" + produto.nome)
- })
+const ativosEstoque = produtos.filter(produto => produto.ativo === true && produto.estoque > 0);
 
- //Apenas produtos ativos e com estoque maior que zero.Exiba cada resultado. Estar ativo e ter estoque são condições diferentes: o produto pode estar cadastrado como ativo mesmo sem unidades disponíveis.
-
- const ativosEstoque = produtos.filter(produto => produto.ativo === true && produto.estoque > 0);
-
- console.log ("Produtos ativos e com estoque maior que zero:" + ativosEstoque.length);
+console.log("Produtos ativos e com estoque maior que zero:" + ativosEstoque.length);
 
 // Forma correta de exibir cada produto usando o forEach:
 ativosEstoque.forEach(produto => {
-    console.log( `- ${produto.nome} (Estoque: ${produto.estoque})`);
+    console.log(`- ${produto.nome} (Estoque: ${produto.estoque})`);
 });
- 
-  
 
 
- /*Crie uma função chamada buscarProdutoPorId(id).
+
+
+/*4 Crie uma função chamada buscarProdutoPorId(id).
 A função deve retornar o objeto que possui o ID recebido. Utilize find().
 */
 
 
 function buscarProdutoPorId(id) {
-    return produtos.find(produto => produto.id === id);
+    if (produtos.find(produto => produto.id === id)) {
+
+        return produtos.find(produto => produto.id === id);
+
+    }  else {
+        return "Produto não encontrado"
+    }
 }
 
-const produtoEncontrado = buscarProdutoPorId(99);
-
-// Verifica se encontrou o produto antes de tentar ler o .nome
-if (produtoEncontrado) {
-    console.log("Produto encontrado pelo ID: " + produtoEncontrado.nome);
-} else {
-    console.log("Produto não encontrado");
-}
+console.log(buscarProdutoPorId(99));
 
 
 
-/*Utilize map() para criar:
-● Um vetor chamado nomesProdutos, contendo somente os nomes.
-● Um vetor chamado resumosProdutos, contendo objetos com apenas id, nome e preco.
-Não altere o vetor produtos*/
+//5 Utilize map() para criar:
+// Um vetor chamado nomesProdutos, contendo somente os nomes.
 
-let nomesProdutos = [];
-let resumosProdutps = [];
 
-nomesProdutos = produtos.map(produto => produto.nome);
-console.log("Nomes dos Produtos:" + nomesProdutos);
+const nomesProdutos = produtos.map(produto => produto.nome);
+console.log("Nomes dos Produtos:", nomesProdutos);
 
-resumosProdutps = produtos.map(produto => {
-    return { id: produto.id, nome: produto.nome, preco: produto.preco}
+// Um vetor chamado resumosProdutos, contendo objetos com apenas id, nome e preco.
+//Não altere o vetor produtos*/
 
-})
+const resumosProdutos = produtos.map(produto =>( {
 
-console.log ("Resumos dos Produtos:"  )
+        id: produto.id, 
+        nome: produto.nome, 
+        preco: produto.preco }
+    ))
 
- 
+console.log("Resumos dos Produtos:", resumosProdutos)
+
+
+//6 Localize o produto de ID 2 e crie um novo objeto chamado produtoAtualizado:
+//Mantenha todas as propriedades do produto encontrado. Altere somente o preço para 219.90. Utilize o operador de espalhamento: ....
+//Exiba o produto original e o novo objeto. O preço do original deve continuar sendo 249.90.
+
+let produtoAtualizado = {
+    ...buscarProdutoPorId (2),
+    preco: 219.90
+};
+
+console.log( produtoAtualizado)
+
+//7 Atualizando um produto dentro do vetor
+//Crie um novo vetor chamado produtosAtualizados, utilizando map().
+//Nesse novo vetor:
+// O produto de ID 5 deve ter estoque igual a 10.
+//As demais informações desse produto devem ser preservadas.
+//Os demais produtos devem ser mantidos.
+//O vetor original deve continuar com estoque 12 para o produto de ID 5.
+//Utilize o ID para identificar o produto, mesmo que a posição dele no vetor mude.
+
+
+// Criando o novo vetor com map()
+const produtosAtualizados = produtos.map(produto => {
+    // Verifica se é o produto com ID 5
+    if (produto.id === 5) {
+        return {
+            ...produto,       // Copia todas as propriedades existentes (nome, preco, etc.)
+            estoque: 10       // Sobrescreve apenas a propriedade estoque para 10
+        };
+    }
+
+    // Para os demais produtos, retorna o objeto exatamente como estava
+    return produto;
+});
+
+// Testando os resultados:
+console.log("=== VETOR ORIGINAL (ID 5 deve continuar com estoque 12) ===");
+console.log(produtos.find(p => p.id === 5));
+
+console.log("\n=== VETOR ATUALIZADO (ID 5 deve estar com estoque 10) ===");
+console.log(produtosAtualizados.find(p => p.id === 5));
+
+//8 Desafio final — inclusão e remoção
+//Partindo novamente do vetor original:
+//● Crie um objeto para um novo produto, seguindo a mesma estrutura e utilizando o ID 11.
+//● Crie produtosComNovo, contendo os produtos existentes e o novo produto. Utilize ....
+//● A partir de produtosComNovo, crie produtosSemRemovido, removendo o produto de ID 6 com filter().
+//● Confira as quantidades: o vetor original deve ter 10, o vetor após inclusão 11 e o vetor após remoção 10 produtos.
+
+// 1. Criando o objeto para o novo produto (ID 11)
+let novoProduto = {
+    id: 11,
+    nome: "Mousepad Gamer RGB",
+    categoria: "Acessórios",
+    preco: 99.90,
+    estoque: 10,
+    ativo: true
+};
+
+// 2. Criando produtosComNovo, adicionando o novo produto com o operador ... (Spread)
+let produtosComNovo = [...produtos, novoProduto];
+console.log (produtosComNovo)
+
+// 3. Criando produtosSemRemovido, removendo o produto de ID 6 utilizando filter()
+let produtosSemRemovido = produtosComNovo.filter(produto => produto.id !== 6);
+
+// 4. Conferindo as quantidades de produtos em cada vetor
+console.log("Quantidade no vetor original:", produtos.length);             // Deve ser 10
+console.log("Quantidade após inclusão:", produtosComNovo.length);         // Deve ser 11
+console.log("Quantidade após remoção:", produtosSemRemovido.length);       // Deve ser 10
